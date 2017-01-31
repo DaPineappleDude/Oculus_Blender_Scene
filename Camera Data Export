@@ -1,0 +1,23 @@
+fw("# Camera Extrinsics & Intrinsics x y z rot_x rot_y rot_z \n")
+
+  for obj, obj_data in cameras:
+    matrix = obj.matrix_world.copy()
+    fw("%d," % f)
+    fw("%s," % obj.name)
+    fw("%s," % 'Position')
+    fw("%r,%r,%r," % matrix.to_translation()[:])
+    fw("%s," % 'XYZ Euler Rotation')
+    fw("%r,%r,%r," % matrix.to_xyzeuler()[:])
+    fw("\n")
+
+from bpy.props import StringProperty, IntProperty, BoolProperty
+from bpy_extras.io_utils import ExportHelper
+
+class CameraExporter(bpy.types.Operator, ExportHelper):
+    """Export camera extrinsics & intrinsics to a file"""
+    bl_idname = "export_trajectory.cameras"
+    bl_label = "Export camera trajectory"
+
+    filename_ext = ".csv"
+
+filter_glob = StringProperty(default="*.csv", options={'HIDDEN'})
