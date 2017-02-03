@@ -19,3 +19,12 @@ for image in bpy.data.images:
 file.close()
 
 
+
+#location
+location = bpy.data.objects["Camera.000"].location
+
+#rotation
+rotation_euler_xyz = bpy.data.objects["Camera.000"].rotation_euler*(180/pi)
+
+#rotation/location & scale
+loc, rot, scale = bpy.data.objects["Camera.000"].matrix_world.decompose()
