@@ -26,5 +26,32 @@ location = bpy.data.objects["Camera.000"].location
 #rotation
 rotation_euler_xyz = bpy.data.objects["Camera.000"].rotation_euler*(180/pi)
 
-#rotation/location & scale
+#rotation/location & scale all together
 loc, rot, scale = bpy.data.objects["Camera.000"].matrix_world.decompose()
+#rot in quaternion
+
+#accessing camera data
+lens_focal_length = bpy.data.cameras["Camera.000"].lens 
+sensor_width = py.data.cameras["Camera.000"].sensor_width
+
+
+#storing object data
+obj = bpy.data.object["name"]
+
+#Dimensions
+obj.dimensions
+
+#Polygon Data of Meshes
+icos = bpy.context.active_object
+dir(icos)
+dirc(icos.data)
+
+icos.data.polygons[:]
+
+bpy.data.meshes["Icosphere"].polygons
+
+bpy.data.meshes["Icosphere"].polygons[2].normal ---> gives nomrals
+
+mesh.polygons[2].center
+
+
