@@ -54,4 +54,9 @@ bpy.data.meshes["Icosphere"].polygons[2].normal ---> gives nomrals
 
 mesh.polygons[2].center
 
+#running py script in blender
+filename = "C:/Users/oculus/Desktop/Spring Semester_SAM/Export_Data.py"
+exec(compile(open(filename).read(), filename, 'exec'))
+
+
 
